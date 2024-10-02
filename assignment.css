@@ -1,0 +1,653 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+/* to make home nav is highlight */
+/* home active design */
+#active{
+    color: rgb(4, 57, 4);
+    text-decoration: underline;
+}
+
+
+/* navbar and home content */
+
+.container-fluid{
+    height: 100vh;
+    background-image: url('images/card6.jpg');
+    background-size: cover;                /* to get full size image on screen*/
+    background-position: center;
+
+}
+
+/* header */
+.header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 1.3rem 10%;
+    
+    display: flex;                           /*to get correct alignment for navbar contents*/
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;  
+}
+
+ .header::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.1);
+    z-index: -1;
+
+
+} 
+/* navbar design */
+.container{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 1.3rem 10%;
+    background: rgba(0, 0,0, 0.1);
+    display: flex;
+    justify-content: space-between;        /*give space between logo and navbar contents*/
+    align-items: center;
+    z-index: 100;
+}
+
+
+/* logo */
+.logo{
+    font-size: 2rem;
+    font-weight: 600;
+    text-decoration: none;
+    color: white;
+}
+
+
+
+/* navbar links */
+.navbar a{
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: white;
+    text-decoration: none;
+    margin-left: 2.5rem;
+}
+.navbar a:hover{
+    color: rgb(4, 57, 4);
+    text-decoration: underline;
+}
+
+/* checkbox */
+#checkbox{
+    display: none;
+}
+
+/* menu icon */
+.icons{
+    position: absolute;
+    right: 5%;      /*to move icon in the right side*/
+    font-size: 2.5rem;
+    cursor: pointer;
+    color: rgb(4, 57, 4);
+    display: none;          /*initially menu icon was not need to visible.so make it unvisible******/
+
+}
+
+
+/*********** break points *********/
+
+/********** media query ***********/
+
+/* for large screen */
+@media(max-width:992px){
+    header{
+        padding: 1.3rem 5%;
+    }
+}
+
+/* for medium screen */
+@media(max-width:768px){
+    .icons{
+        display: inline-flex;    /*to view the menu bar*/
+
+    }
+
+    /* when click on menubar ,it should unvisible */
+    #checkbox:checked~.icons #menuIcon{
+        display: none;
+    }
+    /* when menubar is clicked, crossicon is visible */
+    #checkbox:checked~.icons #crossIcon{
+        display: block;
+    }
+
+
+    .icons #crossIcon{
+        display: none;
+    }
+    .navbar{
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        height: 0;
+        background: rgba(0, 0, 0, 0.1);
+        overflow: hidden;            /* navbar content is only visible when menu bar is clicked*/
+        transition: 0.3s ease;
+
+    }
+    #checkbox:checked~.navbar{
+        height: 22.5rem;    /*height of nav bar content dispaly when menu bar clicked on small screen*/
+        
+    }
+    
+
+    
+    .navbar a{
+        display: block;    /*to display navbar contents line by line when screen size is reduced*/
+        font-size: 1.1rem;
+        margin: 1.5rem 0;   /*to give gap between navbar contents*/
+        text-align: center;
+        transform: translateY(-50px);
+        opacity: 0;
+        transition: 0.3s ease;
+        color: white;
+    }
+
+    #checkbox:checked~.navbar a{
+        transform: translateY(0);
+        opacity: 1;
+        transition-delay: calc(.15s * var(--i));   /*to get animation effect*/
+    }
+    
+    
+
+}
+
+/* home */
+#home{
+    margin: 200px 180px 0px 180px;
+}
+.home-body{
+    font-family: "Playfair Display", serif;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 60px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+    
+
+#username{
+    font-size: 60px;
+    font-weight: 200;
+    color: gray;
+    
+}
+#username:hover{
+    color: rgb(4, 57, 4);
+}
+
+.home-para{
+    font-size: 17px;
+    line-height: 1.5;
+    color: gray;
+    text-align: center;
+}
+
+
+
+/* for medium screen */
+@media(max-width: 768px) {
+    /* Existing styles for small screens... */
+
+    /* Adjust the home section */
+    #home {
+        margin: 100px 20px; /* Reduce the margin */
+    }
+    
+    .home-body {
+        grid-template-columns: 1fr; /* Change to a single column layout */
+        gap: 20px; /* Reduce gap between items */
+    }
+
+    #username {
+        font-size: 32px; /* Adjust font size for smaller screens */
+        text-align: center;
+    }
+
+    .home-para {
+        font-size: 14px; /* Adjust paragraph font size */
+    }
+}
+
+
+
+/*************************************** section1 **************************************/
+
+/* best seller */
+
+#best-seller{
+    margin-top: 150px;
+    
+}
+#best-seller h1{
+    font-family: "Playfair Display", serif;
+    text-align: center;
+    font-size: 60px;
+    font-weight: 200;
+    text-decoration: none;
+    color: gray;
+}
+#best-seller h1:hover{
+    
+    color: rgb(4, 57, 4);
+}
+.best-img{
+    margin:100px 0px;
+    padding: 0 75px; 
+    
+    width: 100%;
+    text-align: center;
+}
+.grp{
+    width: 280px;
+    height: 400px;
+    margin: 0 30px;
+    
+    
+    float: left;
+    
+}
+.img1{
+    width: 100%;
+    
+}
+.best-head1{
+    padding-top: 20px;
+}
+.best-head2{
+    padding-top: 10px;
+    color: grey;
+}
+
+@media(max-width: 768px){
+    #best-seller h1{
+        font-size: 32px;
+    }
+
+}
+
+/*********************************************** occasions ****************************************/
+#occasions {
+    margin: 0px 120px 0 150px;
+    font-family: "Playfair Display", serif;
+}
+
+.occasionHead h1 {
+    margin-top: 250px;
+    text-align: center;
+    font-size: 60px;
+    font-weight: 200;
+    color: gray;
+}
+
+.occasion-content {
+    padding-left: 350px;
+    padding-top: 300px; /* Adjust as needed for larger screens */
+}
+
+.list {
+    text-decoration: none;
+    color: gray;
+    line-height: 1.8;
+}
+
+.occasion-body {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px; /* Adding some gap between columns */
+}
+
+.occasion-img {
+    padding-top: 50px;
+}
+
+.image-wrapper {
+    display: none;
+    width: 400px;
+    height: 500px;
+}
+
+.images {
+    width: 100%;
+    height: 100%;
+}
+
+/* Display only the targeted image */
+.image-wrapper:target {
+    display: block;
+}
+
+/* Media Query for smaller screens */
+@media (max-width: 768px) {
+    #occasions {
+        margin: 50px 20px; /* Reduce margins for smaller screens */
+    }
+
+    .occasionHead h1 {
+        font-size: 30px; /* Reduce font size */
+    }
+
+    .occasion-content {
+        padding-left: 150px; /* Reduce left padding */
+        padding-top: 50px; /* Adjust top padding */
+    }
+
+    .occasion-body {
+        grid-template-columns: 1fr; /* Stack items vertically */
+    }
+
+    .occasion-img {
+        padding-top: 20px; /* Adjust padding for the images */
+    }
+
+    .image-wrapper {
+        width: 100%; /* Full width on smaller screens */
+        height: auto; /* Auto height for responsive images */
+    }
+}
+
+/************************************ services ******************************************/
+
+#services{
+    margin-top: 150px;
+    margin-bottom: 150px;
+    
+}
+#services h1{
+    font-family: "Playfair Display", serif;
+    text-align: center;
+    font-size: 60px;
+    font-weight: 200;
+    text-decoration: none;
+    color: gray;
+}
+#services h1:hover{
+    
+    color: rgb(4, 57, 4);
+}
+.service-img{
+    margin:100px 0px;
+    padding: 0 170px; 
+    
+    width: 100%;
+    text-align: center;
+    border-radius: 50%;
+}.group{
+    
+    width: 330px;
+    height: 400px;
+    margin: 0 30px;
+    float: left;
+    
+    
+}
+.group img{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: solid transparent;
+}
+.group img:hover{
+    border: solid 25px rgb(251, 248, 248);
+}
+
+
+.service-head1{
+    padding-top: 20px;
+    font-family: "Playfair Display", serif;
+    color: grey;
+    
+    
+
+}
+
+
+/*************** mediaquerry ***************/
+@media(max-width: 768px){
+
+    #services{
+        margin-bottom: 100px;
+    }
+    #services h1{
+        font-size: 30px;
+    }
+
+    .service-img{
+        margin:100px 0px;
+        padding: 0 45px; 
+        
+        width: 100%;
+        text-align: center;
+    }
+    .group{
+    
+    
+        margin: 100px 30px;
+        
+    }
+
+}
+
+
+
+/******************************* testimonial ******************************/
+
+
+#testimonial {
+    margin-top: 650px; /* Reduced top margin for presentational reasons */
+    background-color: wheat;
+    width: 100%;
+    height: auto;
+    padding: 50px 0; /* Added padding for top and bottom */
+    overflow: hidden;
+}
+
+#testimonial h1 {
+    padding-top: 30px;
+    font-family: "Playfair Display", serif;
+    text-align: center;
+    font-size: 60px;
+    font-weight: 200;
+    text-decoration: none;
+    color: gray;
+}
+
+#testimonial h4 {
+    font-family: "Playfair Display", serif;
+    text-align: center;
+    font-size: 20px;
+    color: gray;
+    padding-top: 20px;
+}
+
+.team {
+    margin: 50px auto; /* Center the team area */
+    width: 80%; /* Use a percentage for better responsiveness */
+    height: auto; /* Height can be auto because it's about content */
+    display: flex;
+    flex-wrap: wrap; /* Allow line breaks when there are too many items */
+    justify-content: space-between; /* Distribute extra space between items */
+    gap: 20px; /* Add gap to control spacing between team members */
+    
+}
+
+.team-member {
+    border: solid white;
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px; /* Uniform padding */
+    width: calc(33.3% - 20px); /* Calculate the width minus gap */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Add a shadow for depth */
+}
+
+.stars {
+    display: flex;
+    margin: 10px 0; /* Add margin to bottom */
+}
+
+
+
+/* mediaquerry */
+
+@media(max-width:768px){
+
+    
+    #testimonial h1{
+        font-size: 30px;
+    }
+
+    #testimonial h4{
+        font-size: 15px;
+    }
+
+    .team {
+        width: 100%;
+        height: auto;
+        flex-direction: column;
+        align-items: center;
+    }
+    .team-member {
+        width: 80%; /* Make team members take most of the width */
+        margin-bottom: 20px; /* Space between stacked items */
+    }
+
+}
+
+
+/********************** contact ****************************/
+
+#contact{
+    margin-top: 100px;
+    width: 100%;
+    height: auto;
+    margin-bottom: 100px;
+}
+#contact h1{
+    font-size: 60px;
+    font-weight: 200;
+    color: gray;
+    font-family: "Playfair Display", serif;
+    text-align: center;
+}
+
+.contact-details{
+    margin-top: 100px;
+    text-align: center;
+}
+
+#user{
+    width: 40%;
+    padding: 10px 8px;
+    border-radius: 10px;
+    border: solid gray;
+}
+#btn{
+    margin-left: 10px;
+    padding: 10px 5px;
+    border-radius: 10px;
+    background-color:gray ;
+    border: solid gray;
+    color: white;
+}
+
+/*********** mediaquerry ***********/
+
+@media(max-width:768px){
+    #contact h1{
+        font-size: 30px;
+    }
+}
+
+/********************** footer ****************************/
+
+footer {
+    background-color: wheat;
+    /* text-align: center; */
+}
+
+.details {
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 0 150px 0 250px; 
+    
+     
+}
+
+.logo-content {
+    flex: 1 1 200px; /* Takes full width on larger screens and allows shrinking */
+    min-width: 200px; /* Ensures it doesn’t shrink too much */
+}
+
+.infobox {
+    margin-bottom: 10px;
+    color: rgb(78, 74, 74);
+}
+
+.infobox > span {
+    margin-left: 1rem;
+    color: rgb(78, 74, 74);
+}
+
+.footer-links {
+    flex: 1 1 150px; /* Allows flexibility based on screen size */
+    min-width: 100px; /* Minimum width for each link container */
+    padding-top: 80px;
+}
+
+.points {
+    list-style: none;
+    padding-bottom: 5px;
+}
+
+.point-details {
+    text-decoration: none;
+    color: rgb(78, 74, 74);
+}
+
+#copyright {
+    text-align: center;
+    color: rgb(78, 74, 74);
+    margin-top: 20px; /* Spacing above the copyright text */
+}
+
+/* Media Query for Smaller Screens */
+@media (max-width: 600px) {
+    .details {
+        flex-direction: column; /* Stacks elements vertically */
+        align-items: center; /* Centers items */
+    }
+
+    .footer-links {
+        width: 100%; /* Full width on mobile */
+        text-align: center; /* Center the links */
+    }
+
+    #copyright {
+        font-size: 14px; /* Smaller font for copyright */
+    }
+}
+
